@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Attendance</title>
+</head>
+<body>
+    <h2>Real-Time Attendance</h2>
+    
+    <form action="/" method="get">
+        <label>Select Date:</label>
+        <input type="date" name="date" value="{{ selected_date }}">
+        <button type="submit">Filter</button>
+    </form>
+
+    <h3>Student List</h3>
+    <table border="1">
+        <tr>
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Status</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.roll_no }}</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h3>Add a Student</h3>
+    <form action="/add_student" method="post">
+        <label>Roll No:</label>
+        <input type="text" name="roll_no" required>
+        <label>Name:</label>
+        <input type="text" name="name" required>
+        <label>Status:</label>
+        <select name="status">
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+        </select>
+        <button type="submit">Add Student</button>
+    </form>
+
+</body>
+</html>

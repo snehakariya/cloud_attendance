@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance Records</title>
+</head>
+<body>
+    <h2>Attendance Records</h2>
+    {% for record in attendance_records %}
+        <h3>Date: {{ record.date }}</h3>
+        <ul>
+            {% for student in record.students %}
+                <li>{{ student }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+    <br>
+    <a href="/">Go Back</a>
+</body>
+</html>
